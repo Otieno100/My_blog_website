@@ -17,6 +17,31 @@ from flask_mail import Message , Mail
 import os
 
 
+
+# 
+
+# from . import app
+# from flask import render_template
+# from . import  quote
+# from . import request
+
+
+# @app.route('/')
+# def home():
+#     quotes=[]
+#     # for i in range(11):
+#     req=request.Request()
+#     data=req.request("http://quotes.stormconsultancy.co.uk/random.json",500)
+#     quotes.append(quote.Quote(data["id"],data["quote"],data["author"]))
+        
+
+
+#     return render_template('index.html',datum=quotes ,)
+
+
+# 
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SECRET_KEY']='my secrecte key'
@@ -127,6 +152,24 @@ def register():
 
 
 
+@app.route('/login', methods = ['POST','GET'])
+def login():
+    updateUser =UpdateForm()
+  
+    if updateUser.validate_on_submit():
+        if updateUser.cnfpass.data==updateUser.password.data:
+           hash_pwd = bcrypt.generate_password_hash(updateUser.password.data)
+        user = User(name = updateUser.data, email = updateUser.data, password = hash_pwd)
+        session['name'] = updateUser.name.data
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('display'))
+
+    return render_template('login.html', form = updateUser)
+    
+
+
+
 @app.route('/display')
 def display():
     qr_all = post.query.all()
@@ -149,12 +192,7 @@ def index():
         db.session.commit()
 
         return redirect(url_for('display'))
-    return render_template('index.html',form = dataForm,)    
-
-
-
-
-
+    return render_template('update.html',form = dataForm,)    
 
 
 
@@ -162,4 +200,7 @@ def index():
 
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=1)
+
+
+
