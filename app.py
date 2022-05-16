@@ -15,34 +15,15 @@ from flask_bcrypt import Bcrypt
 from flask_login import UserMixin,login_manager, login_required,login_user,logout_user,LoginManager,current_user
 from flask_mail import Message , Mail
 import os
+from flask import render_template
+from  quote import  quote
+from quote import request
 
 
-
-# 
-
-# from . import app
-# from flask import render_template
-# from . import  quote
-# from . import request
-
-
-# @app.route('/')
-# def home():
-#     quotes=[]
-#     # for i in range(11):
-#     req=request.Request()
-#     data=req.request("http://quotes.stormconsultancy.co.uk/random.json",500)
-#     quotes.append(quote.Quote(data["id"],data["quote"],data["author"]))
-        
-
-
-#     return render_template('index.html',datum=quotes ,)
-
-
-# 
 
 
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SECRET_KEY']='my secrecte key'
 
@@ -55,6 +36,8 @@ app.config["MAIL_USE_TLS"]=True
 app.config["MAIL_USE_SSL"]=True
 app.config['MAIL_USERNAME']=os.environ.get('EMAIL_USER')
 app.config['MAIL_PASSWORD']=os.environ.get('EMAIL_PASS')
+
+
 
 
 
@@ -93,8 +76,8 @@ class post(db.Model):
 
 
 class UserForm (FlaskForm) :
-    title = StringField(' post title',validators = [DataRequired()])
-    post = StringField('Enter your post',validators = [DataRequired()])
+    title = StringField(' enter title of your post',validators = [DataRequired()])
+    post = StringField('Enter your blogpostpost here',validators = [DataRequired()])
    
     submit = SubmitField('submit')
 
@@ -125,6 +108,8 @@ class RegisterFrm(FlaskForm):
     cnfpass=PasswordField("Confirm Password",validators=[DataRequired()])
     submt=SubmitField('Register')
 
+  
+
 class User(db.Model) :
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(30),nullable = False) 
@@ -136,7 +121,18 @@ class User(db.Model) :
 
     
 
-    
+@app.route('/')
+def home():
+    quotes=[]
+    req=request.Request()
+    data=req.request("http://quotes.stormconsultancy.co.uk/random.json",500)
+    quotes.append(quote.Quote(data["id"],data["quote"],data["author"]))
+        
+
+
+    return render_template('index.html',datum=quotes ,)
+
+
 
 
 
@@ -154,7 +150,7 @@ def register():
          db.session.add(newuser)
          db.session.commit()
          msg=Message(subject=" POSTER APP REGISTRATION",recipients=[frm.email.data],body=frm.name.data+" Thank you for registering")
-         mail.send(msg)
+         mail.send('msg')
         
          
             # return redirect(url_for('login'))
@@ -170,7 +166,7 @@ def login():
     if updateUser.validate_on_submit():
         if updateUser.cnfpass.data==updateUser.password.data:
            hash_pwd = bcrypt.generate_password_hash(updateUser.password.data)
-        user = User(name = updateUser.data, email = updateUser.data, password = hash_pwd)
+        user = User(username = updateUser.data, email = updateUser.data, password = hash_pwd)
         session['name'] = updateUser.name.data
         db.session.add(user)
         db.session.commit()
@@ -191,7 +187,7 @@ def display():
 
 
 
-@app.route('/', methods = ['POST','GET'])
+@app.route('/update', methods = ['POST','GET'])
 def index():
 
     dataForm =UserForm()
