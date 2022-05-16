@@ -11,54 +11,56 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}"> -->
 
-    <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'CSS/style.css')}}">
 
 </head>
 
-<body>
+<body style="background-color: #D8E0BB;">
 
 
 
+    <form action="/register">
 
-    <div class="adjust">
+        <div class="adjust">
 
-        <div class="target">
+            <div class="target">
+
+                {%for datum in data%}
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="card border-success mb-3" style="max-width: 38rem;">
+                            <div class="card-header bg-transparent border-success">posts</div>
+                            <div class="card-body text-success">
+                                <img src="https://img.icons8.com/material/344/quote-left--v1.png" alt=""
+                                    style="width:4vh;height: 4vh;">
+                                <h5 class="card-title"> {{datum.title}}</h5>
+                                <p class="card-text"> {{datum.post}}</p>
+                                <img src="https://img.icons8.com/material-rounded/344/quote-right.png" alt=""
+                                    style="width:4vh;height: 4vh;">
+                            </div>
 
 
-
-
-
-            {%for datum in data%}
-
-            <div class="container-fluid">
-
-                <div class="row">
-                    <div class="card border-success mb-3" style="max-width: 38rem;">
-                        <div class="card-header bg-transparent border-success">posts</div>
-                        <div class="card-body text-success">
-                            <h5 class="card-title"> {{datum.title}}</h5>
-                            <p class="card-text"> {{datum.post}}</p>
+                            <div class="card-footer bg-transparent border-success"><a href='/update'><button
+                                        class="btn btn-primary btn-lg justify-content:center;d-flex">create your <span
+                                            style="color: orange;"> blogpost</span> here</button></a></div>
                         </div>
-
-
-                        <div class="card-footer bg-transparent border-success"><a href='/update'><button
-                                    class="btn btn-primary btn-lg">view comments</button></a></div>
                     </div>
+
+
                 </div>
 
+                {%endfor%}
 
             </div>
-
-            {%endfor%}
-
-
-
 
         </div>
 
 
 
-    </div>
+
+    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
