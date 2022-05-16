@@ -101,12 +101,12 @@ class UserForm (FlaskForm) :
 
 
 
-class User(db.Model,UserMixin):
-    id=db.Column(db.Integer,primary_key=True)
-    username=db.Column(db.String(40),nullable=False)
-    email=db.Column(db.String(40),nullable=False)
-    password=db.Column(db.String(40),nullable=False)
-    # postman=db.relationship('Post',backref="postman")
+# class User(db.Model,UserMixin):
+#     id=db.Column(db.Integer,primary_key=True)
+#     username=db.Column(db.String(40),nullable=False)
+#     email=db.Column(db.String(40),nullable=False)
+#     password=db.Column(db.String(40),nullable=False)
+#     # postman=db.relationship('Post',backref="postman")
 
 class UpdateForm(FlaskForm) :   
     name = StringField('username', validators=[DataRequired()])
@@ -124,6 +124,17 @@ class RegisterFrm(FlaskForm):
     password=PasswordField("Password",validators=[DataRequired()])
     cnfpass=PasswordField("Confirm Password",validators=[DataRequired()])
     submt=SubmitField('Register')
+
+class User(db.Model) :
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(30),nullable = False) 
+    email = db.Column(db.String(20),nullable = False)
+    password = db.Column(db.String(200), nullable = False)
+
+
+
+
+    
 
     
 
@@ -166,7 +177,7 @@ def login():
         return redirect(url_for('display'))
 
     return render_template('login.html', form = updateUser)
-    
+   
 
 
 
