@@ -38,9 +38,9 @@ To run the application, in your terminal:
 
 Behaviour Driven Development display a list of categories
 
-INPUT:"Show category button pressed" OUTPUT:"An area displaying all the existing categories" displays a link to see pitches of a particular category INPUT:"source link clicked" OUTPUT:"A page displaying all the pitches in a category" adds a new pitch INPUT:"Add new pitch button pressed" OUTPUT:"New pitch in a particular category added" registers user to the website INPUT:"A form containing required info of user is submitted" OUTPUT:"User is registered with a specific email and password" login user to the website INPUT:"User enter password and email address" OUTPUT:"User loggedin to the system" Technologies Used Python 3.6 Flask Framework HTML, CSS(Bootstap) & JavaScript(jQuery) PostgreSQL Pip*
+ ###### INPUT:"Show category button pressed" OUTPUT:"An area displaying all the existing categories" displays a link to see pitches of a particular category INPUT:"source link clicked" OUTPUT:"A page displaying all the pitches in a category" adds a new pitch INPUT:"Add new pitch button pressed" OUTPUT:"New pitch in a particular category added" registers user to the website INPUT:"A form containing required info of user is submitted" OUTPUT:"User is registered with a specific email and password" login user to the website INPUT:"User enter password and email address" OUTPUT:"User loggedin to the system" Technologies Used Python 3.6 Flask Framework HTML, CSS(Bootstap) & JavaScript(jQuery) PostgreSQL Pip*
 
-Setup Installations Requirements
+ *** Setup Installations Requirements
 To run the application, in your terminal:
 Clone or download the Repository
 Create a virtual environment
@@ -51,7 +51,7 @@ Run ./start.sh
 Access the application through localhost:5000 Development Want to contribute? Great!
 To fix a bug or enhance an existing module, follow these steps:
 
-Fork the repo Create a new branch (git checkout -b improve-feature) Make the appropriate changes in the files Add changes to reflect the changes made Commit your changes (git commit -am 'Improve feature') Push to the branch (git push origin improve-feature) Create a Pull Request Known Bugs If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue here by including your search query and the expected result.
+**** Fork the repo Create a new branch (git checkout -b improve-feature) Make the appropriate changes in the files Add changes to reflect the changes made Commit your changes (git commit -am 'Improve feature') Push to the branch (git push origin improve-feature) Create a Pull Request Known Bugs If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue here by including your search query and the expected result.
 
 If you'd like to request a new function, feel free to do so by opening an issue here. Please include sample queries and their corresponding results.
 
