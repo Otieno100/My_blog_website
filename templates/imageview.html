@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename = 'Css/style.css')}}">
+</head>
+
+<body>
+    <h4 style="color: orange;font-family:'Times New Roman', Times, serif;font-size:25px;"> {{ name}} view the images you
+        have uploaded</h4>
+    <a href="{{url_for('uploadimage')}}">Upload another image</a>
+    <br>
+    <br> {% for image in images %}
+    <img style="height:55vh; width:55vh; margin-right: 1cm; border-radius: 20px;"
+        src="{{url_for('static', filename='uploads/'+image.name)}}" alt="This is the image" srcset=""> {% endfor %}
+
+   <p style="margin-top: 3cm;font-family:'Times New Roman', Times, serif;font-size:20px;border:solid 1px;background-color: #00ced1;border-radius: 10px;text-align: center;height: 2cm;"> <a href="{{url_for('viewallimages')}}"> view all posted Appartment Image</a></p>
+</body>
+
+</htm

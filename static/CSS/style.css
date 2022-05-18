@@ -12,7 +12,7 @@ form {
 }
 
 body {
-    background-color: black;
+    background-color: whitesmoke;
 
     /* background-image: url('https://images.unsplash.com/photo-1597332503885-fc8d195a99b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmxhY2slMjBhbmQlMjBibHVlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80'); */
     background-repeat: no-repeat;
@@ -62,7 +62,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 
-.row{
+.row {
 
 
     background: rgba( 255, 255, 255, 0.9 );
@@ -84,5 +84,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .container{
 
 margin-top: 3cm;
+
+}
+
+
+.card{
+
+
+ background-color: #86A3C3;
 
 }

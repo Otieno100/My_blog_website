@@ -33,15 +33,15 @@
                     {% with message= get_flashed_messages() %} {% if message %} {% for msg in message %} {{ msg }} {%
                     endfor
                     %} {% endif %} {% endwith %}
-                    <form action="/register" method="POST">
+                    <form action="/update" method="POST">
                         <br> {{ form.hidden_tag() }} {{form.name.label()}} {{form.name( class="form-control")}}
 
                         <br> {{form.email.label(class="form-label")}} {{form.email( class="form-control")}}
                         <br> {{form.password.label()}}{{form.password( class="form-control")}}
-                        <!-- <a href="/display" class="btn btn-primary"> {{form.submit}}</a> -->
+                        <a href="/display" class="btn btn-primary"> {{form.submit}}</a>
 
 
-                        <br>{{form.submit}}
+                        <!-- <br>{{form.submit}} -->
                         
 
                     </form>

@@ -23,26 +23,35 @@
 
 
     {% for data in datum %}
-    
-    <div class="quote">
 
-        
+    <form action="/update">
 
 
-        <div>
-            <h3 style="color: orange ;">Refresh to view random quotes from Api </h3>
 
-            <h4>{{data.quote}}</h4>
+        <div class="quote">
 
-            <p>{{data.author}}</p>
 
-            <p><span style="color: orange;">{{data.id}}</span></p>
-            
+
+
+            <div>
+                <h3 style="color: orange ;">Refresh to view random quotes from Api </h3>
+
+                <h4>{{data.quote}}</h4>
+
+                <p>{{data.author}}</p>
+
+                <p><span style="color: orange;">{{data.id}}</span></p>
+
+
+            </div>
+
 
         </div>
 
 
-    </div>
+
+
+    </form>
 
     {% endfor %}
 

@@ -18,39 +18,35 @@
 
 
 
-    <div class="quote">
+
+    <div style="display:flex;justify-content:center;margin-top:3cm;">
 
 
+        <div class="card" style="width: 58rem;">
+            
+
+                <h4 style="text-align: center;font-family: 'Times New Roman', Times, serif;">Add your blogpost here</h4>
+                <form action="" method="POST" class="form-control">
+
+                    {{form.hidden_tag()}}
+
+                    <p> {{form.title.label()}}{{form.title}}</p>
+                    <br>
+                    <p>{{form.post.label()}}{{form.post}}</p>
+                    <br>
+                    <a href="/display" style="width:2cm;">{{form.submit}}</a>
+
+                </form>
 
 
-        <div>
-
-            {{form.hidden_tag()}}
-            <h3 style="color: orange ;">Enter your blogpost here </h3>
-
-            <h5>{{form.post.label() }} {{form.post}}</h5>
-
-            <h5 style="height: 2cm;">{{form.title.label()}} {{form.title}}</h5>
-
-            <p><span style="color: orange;">{{form.submit}}</span></p>
-
-
+            
         </div>
 
 
+
+
+
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
