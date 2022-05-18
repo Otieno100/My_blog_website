@@ -25,11 +25,21 @@ body {
 
 .adjust {
 
+    background-color: aquamarine;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+    
     margin-top: 3cm;
-
-
+    width: 70%;
+    margin-left: 3cm;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(27px);
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    
 }
 
 /* 
