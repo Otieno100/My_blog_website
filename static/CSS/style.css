@@ -1,4 +1,4 @@
-session  {
+session {
     color: brown;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
@@ -31,6 +31,7 @@ body {
 
 
 }
+
 /* 
 .row {
     font-family: 'Times New Roman', Times, serif;
@@ -39,38 +40,38 @@ body {
  */
 
 
-.quote{
-/* border: solid; */
-display: flex;
-justify-content: center;
-text-align: center;
-margin-top: 5cm;
-font-family: 'Times New Roman', Times, serif;
-color: black;
-width: 50%;
-align-items: center;
-margin-left: 10cm;
+.quote {
+    /* border: solid; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5cm;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    width: 50%;
+    align-items: center;
+    margin-left: 10cm;
 
 
-background: rgba( 255, 255, 255, 0.8 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 12.5px );
--webkit-backdrop-filter: blur( 12.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
 }
 
 
 .row {
+    background-color: aquamarine;
 
-
-    background: rgba( 255, 255, 255, 0.9 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 17px );
-    -webkit-backdrop-filter: blur( 27px );
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(27px);
     border-radius: 10px;
-    border: 3px solid rgba( 255, 255, 255, 0.18 );
+    border: 3px solid rgba(255, 255, 255, 0.18);
 
 }
 
@@ -81,16 +82,52 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 } */
 
 
-.container{
+.container {
+
+    margin-top: 3cm;
+
+}
+
+
+.card {
+
+
+    background-color: #86A3C3;
+
+}
+
+
+
+.quote {
+
+
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+
+
+
+
+}
+
+
+
+.row-1{
+
+background-color: aquamarine;
+
+display: flex;
+justify-content: center;
+align-items: center;
 
 margin-top: 3cm;
+width: 70%;
+margin-left: 3cm;
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+backdrop-filter: blur(17px);
+-webkit-backdrop-filter: blur(27px);
+border-radius: 10px;
+border: 3px solid rgba(255, 255, 255, 0.18);
 
 }
 
-
-.card{
-
-
- background-color: #86A3C3;
-
-}

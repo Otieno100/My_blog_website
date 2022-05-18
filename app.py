@@ -105,12 +105,12 @@ class UpdateForm(FlaskForm) :
 
 
 
-class RegisterFrm(FlaskForm):
-    name=StringField("username",validators=[DataRequired()])
-    email=EmailField("Email",validators=[DataRequired()])
-    password=PasswordField("Password",validators=[DataRequired()])
-    cnfpass=PasswordField("Confirm Password",validators=[DataRequired()])
-    submt=SubmitField('Register')
+# class RegisterFrm(FlaskForm):
+#     name=StringField("username",validators=[DataRequired()])
+#     email=EmailField("Email",validators=[DataRequired()])
+#     password=PasswordField("Password",validators=[DataRequired()])
+#     cnfpass=PasswordField("Confirm Password",validators=[DataRequired()])
+#     submt=SubmitField('Register')
 
   
 
@@ -119,6 +119,16 @@ class User(db.Model) :
     username = db.Column(db.String(30),nullable = False) 
     email = db.Column(db.String(20),nullable = False)
     password = db.Column(db.String(200), nullable = False)
+
+
+class RegisterFrm(FlaskForm):
+    name=StringField("username",validators=[DataRequired()])
+    email=EmailField("Email",validators=[DataRequired()])
+    password=PasswordField("Password",validators=[DataRequired()])
+    cnfpass=PasswordField("Confirm Password",validators=[DataRequired()])
+    submt=SubmitField('Register')
+
+
 
 
 
@@ -139,27 +149,20 @@ def home():
 
 
 
-
 @app.route('/register',methods=['POST','GET'])
 def register():
     frm=RegisterFrm()
     if frm.validate_on_submit():
-        if frm.cnfpass.data==frm.cnfpass.data:
-         hash_pwd = bcrypt.generate_password_hash(frm.password.data)
-         hash_pwd=bcrypt.generate_password_hash(frm.password.data)
-         user = User(username = frm.name.data,password = hash_pwd, email = frm.email.data)
-         newuser= User(username=frm.name.data,email=frm.email.data,password=hash_pwd)
-         session['name']= frm.name.data
-         db.session.add(user)
-         db.session.add(newuser)
-         db.session.commit()
-         msg=Message(subject=" POSTER APP REGISTRATION",recipients=[frm.email.data],body=frm.name.data+" Thank you for registering")
-         mail.send('msg')
-        
+        if frm.password.data==frm.cnfpass.data:
+            hash_pwd=bcrypt.generate_password_hash(frm.password.data)
+            newuser=User(username=frm.name.data,email=frm.email.data,password=hash_pwd)
+            db.session.add(newuser)
+            db.session.commit()
          
-            # return redirect(url_for('login'))
+            return redirect(url_for('login'))
         
     return render_template('register.html',form=frm)
+
 
 
 

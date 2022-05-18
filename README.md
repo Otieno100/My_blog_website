@@ -1,6 +1,6 @@
 ### Author
 ##### Brian Otieno
-### Pitch_App
+### My_Blog_Post
 **  A web application that allows various users to submit a short pitch.
 
 #### Description
