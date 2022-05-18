@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField, PasswordField
 from wtforms.validators import DataRequired
-# from flask_migrate import Migrate
+from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from wtforms import StringField,SubmitField,PasswordField,FileField,TextAreaField,EmailField
 from wtforms.validators import DataRequired
